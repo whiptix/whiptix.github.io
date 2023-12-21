@@ -3,37 +3,27 @@ layout: post
 title: Development Environment Setup
 ---
 
-Jekyll supports the use of [Markdown](http://daringfireball.net/projects/markdown/syntax) with inline HTML tags which makes it easier to quickly write posts with Jekyll, without having to worry too much about text formatting. A sample of the formatting follows.
+As a software developer or one aspiring to be, there will be a need to setup a software development environment this would always consist of the following:-
+1. A working PC / Laptop
+2. Internet Connection
 
-Tables have also been extended from Markdown:
+There may be more to it, However, for starters that's pretty much what you need. 
+The first step in setting up is to have an operation system installed in your PC/Laptop, most machines come with an operating system.
+Linux maybe the best OS for Software development, However Windows is a popupar and user friendly OS, therefore, in this article we will focus in 
+setting up our development environment on a windows os.
 
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
+We will proceed and setup windows subsystem for linux(wsl) which will enable us to install a Linux distribution(such as Ubuntu, OpenSUSE, Kali, Debian, Arch Linux, etc), this is to enable newbies or windows enthusiast get a feel of the linux environment which will be the production environment. 
 
-Here's an example of an image, which is included using Markdown:
+> NOTE: You must be running Windows 10 version 2004 and higher or Windows 11 to use the commands 
 
-![Geometric pattern with fading gradient]({{ site.baseurl }}/assets/img/sample_feature_img_2.png)
+### Installing wsl
+ we are going to install Oracle Linux 9 distribution, by default wsl installs ubuntu linux distribution. To install 
 
-Highlighting for code in Jekyll is done using Pygments or Rouge. This theme makes use of Rouge by default.
+```
+  wsl --list --online
+```
 
-{% highlight js %}
-// count to ten
-for (var i = 1; i <= 10; i++) {
-    console.log(i);
-}
 
-// count to twenty
-var j = 0;
-while (j < 20) {
-    j++;
-    console.log(j);
-}
-{% endhighlight %}
 
-Type Theme uses KaTeX to display maths. Equations such as $$S_n = a \times \frac{1-r^n}{1-r}$$ can be displayed inline.
 
-Alternatively, they can be shown on a new line:
 
-$$ f(x) = \int \frac{2x^2+4x+6}{x-2} $$
