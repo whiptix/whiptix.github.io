@@ -5,20 +5,23 @@ url: "https://whiptix.github.io/"
 # THEME-SPECIFIC CONFIGURATION
 theme_settings:
   # Meta
-  title: Type Theme
-  avatar: /assets/img/avatar.png
+  title: Whiptix Blog
+  avatar: assets/img/avatar.png
   favicon: assets/favicon.ico
   gravatar: # Email MD5 hash
-  description: "A website with blog posts and pages" # used by search engines
+  description: "A blog to impact digital knoledge" # used by search engines
 
   # Header and footer text
   header_text: >
-     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+     <p>As the age of of AI(Artificial intelligence) is dawning upon us and more and more capabilities and skills are developed and integrated into the bots
+     while this may have it own pros which are revolutionary, it is always prudent for a Tech Savvy to understand some fundermentals regarding Hardware Components,
+     software design and development principles and techniques, and cloud computing. </p>
 
-     <p>Remove all header text in <code>_config.yml</code> to disable this feature.</p>
+     <p>As whiptix we have compiled a few articles to enable tech savvy individual to equip themselves with software engineering skills, and in any case that our
+      lead software engineer gets amnesia we will have his memoirs for refference :) </p>
   header_text_feature_image:
   footer_text: >
-   Powered by <a href="https://whiptix.com/">Whiptix</a> with <a href="https://github.com/rohanchandra/type-theme">Type Theme</a>
+   Powered by <a href="https://whiptix.com/">Whiptix</a> 
 
   # Icons
   rss: false
