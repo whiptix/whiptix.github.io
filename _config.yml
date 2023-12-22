@@ -13,11 +13,10 @@ theme_settings:
 
   # Header and footer text
   header_text: >
-     <p>As the age of of AI(Artificial intelligence) is dawning upon us, more and more capabilities and skills are developed and integrated into the bots.
-     This may have its own pros which are revolutionary, it is always prudent for a Tech Savvy to understand some fundermentals regarding Hardware Components,
+     <p>It is always prudent for a tech-savvy to understand some fundermentals regarding Hardware Components,
      software design and development principles and techniques, as well as cloud computing. </p>
 
-     <p>As whiptix we have compiled a few articles to enable tech savvy individuals to equip themselves with software engineering skills, as well safeguarding the same in case our
+     <p>As whiptix we have compiled a few articles to enable tech-savvy individuals to equip themselves with software engineering skills, and a safeguard in case our
       lead software engineer gets amnesia we will have his memoirs for refference :) </p>
   header_text_feature_image:
   footer_text: >
