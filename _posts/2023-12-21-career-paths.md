@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Career Paths
+author : Christopher Githui
 ---
 Software engineering offers multiple career paths. As software engineers acquire new skills and proficiencies, these paths unlock, allowing engineers to choose the focus and direction of their careers.
 
