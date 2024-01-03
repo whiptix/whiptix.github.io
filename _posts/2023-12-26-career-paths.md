@@ -10,15 +10,21 @@ Whatever path you take, there is need to have a Career Development Plan, this wi
 In this article we have put together a guide on some of the common career paths 
 
 ### Front-End Engineer
+A front-end engineer would typically be required to plan, design, build and implement user interface systems of a website, software or web-based applications within an organization. A front-end engineer goal would be to engineer a user interface that is apealing to a user of the said system and that offers great user experience i.e. easy to navigate, no issues, minimal or no downtime, and adaptable to the users device. 
+A front end engineer would be required to Know and have fluency i.e. Junior, intermidiate or senior in front-end frameworks such as React, Angular, or Vue. Have a deep understanding of web development technologies such as Java Script, CSS, and HTML.
+In order to become a competent front-end engineer follow the [Front-end Developer Roadmap ](https://roadmap.sh/frontend 'Front-end Developer Roadmap') as a guide to achieving your goal.
 
 ### Back-End Engineer
-
-### Full-Stack Engineer
-
-### QA Engineer
-
-### Data Engineer
+A back-end engineer would typically be required to plan, design, build and implement API's or micro-services that run in the background within an organization. A back-end engineer goal would be to engineer a service that is  . 
+A Back-end engineer would be required to Know and have a level fluency i.e. Junior, intermidiate or senior in back-end frameworks such as Spring, Quakus, or aspNet core.Also Have a deep understanding of the laguages used in these framework technologies such as Java, C#, node js, and SQL.
+In order to become a competent back-end engineer follow the [Back-end Developer Roadmap ](https://roadmap.sh/spring-boot 'Front-end Developer Roadmap') as a guide to achieving your goal.
 
 ### DevOps Engineer
 
-### Cloud Engineer
+
+### Full Stack Engineer
+A full stack engineer is a whole rounded software engineer with a V shaped skillset in that a full stack engineer will have a deep knowledge in one area i.e back-end software development and grow his/her skills on other areas such as Front-End, DevSecOps etc. 
+
+### QA Engineer
+
+
