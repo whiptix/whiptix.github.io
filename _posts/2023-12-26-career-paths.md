@@ -3,9 +3,7 @@ layout: post
 title: Career Paths
 author : Christopher Githui
 ---
-Software engineering offers multiple career paths. As software engineers acquire new skills and proficiencies, these paths unlock, allowing engineers to choose the focus and direction of their careers.
-
-Whatever path you take, there is need to have a Career Development Plan, this will enable you to identify the software engineering role you want to pursue, learn technical skills, gain the software engineering experience and acquire relevant certifications needed for the role.
+Software engineering offers multiple career paths. As software engineers acquire new skills and proficiencies, these paths unlock, allowing engineers to choose the focus and direction of their careers. Whatever path you take, there is need to have a Career Development Plan, this will enable you to identify the software engineering role you want to pursue, learn technical skills, gain the software engineering experience and acquire relevant certifications needed for the role.
 
 In this article we have put together a guide on some of the engineering roles you can consider in your career path including some of the technologies and skills commonly required in these roles. You can used the technologies or skills mentioned as a guide to farmiliarize with them before pursuing your dream role.
 
@@ -28,7 +26,7 @@ Great skills to have as a devops engineer includes the following
 - containers and container orchestration.
 - continuous integration and continuous deployment.
 - Experience in writing code and shell scripts.
-In order to become a competent DevOps engineer follow the [DevOps engineer Roadmap](https://roadmap.sh/devops 'DevOps engineer Roadmap')as a guide to achieving your goal.
+In order to become a competent DevOps engineer follow the [DevOps engineer Roadmap](https://roadmap.sh/devops 'DevOps engineer Roadmap') as a guide to achieving your goal.
 
 ### Full Stack Engineer
 A full stack engineer is a whole rounded software engineer with a V shaped skillset in that a full stack engineer will have a deep knowledge in one area i.e back-end software development and grow his/her skills on other areas such as Front-End, Back-End, DevOps etc. 
