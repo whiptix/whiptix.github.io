@@ -2,7 +2,7 @@
 layout: post
 title: Linux Fundamentals
 tags: [Linux, Commands]
-author : Christopher Githui
+author : Chris Kahehia
 ---
 "Linux" is more of an umbrella term used for OS's that are based on the Linux Kernel. Linux happens to be free and open-source thus enabling distributions of Linux to come in all shapes and sizes best suited for the system they are being used for i.e as a web or application server, as a desktop or in a cell phone.  
 

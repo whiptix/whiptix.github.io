@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Development Environment Setup
-author : Christopher Githui
+author : Chris Kahehia
 ---
 
 As a software developer or one aspiring to be, there will be a need to setup a software development environment. This would always require the developer to have following:-

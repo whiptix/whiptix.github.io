@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Career Paths
-author : Christopher Githui
+author : Chris Kahehia
 ---
 Software engineering offers multiple career paths. As software engineers acquire new skills and proficiencies, these paths unlock, allowing engineers to choose the focus and direction of their careers. Whatever path you take, there is need to have a Career Development Plan, this will enable you to identify the software engineering role you want to pursue, learn technical skills, gain the software engineering experience and acquire relevant certifications needed for the role.
 

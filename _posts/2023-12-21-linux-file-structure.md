@@ -2,7 +2,7 @@
 layout: post
 title: Linux File Hierachy Standards
 tags: [Linux, FHS]
-author : Christopher Githui
+author : Chris Kahehia
 ---
 Given that today 90% of all cloud infrastructure and over 70% of handheld and smart devices are powered by Linux. It is therefore wise for a software engineer to farmiliarize with [Linux Commands](https://whiptix.github.io/2023/12/20/linux-fundamentals.html 'Linux Commands') and understand the Linux Standard File Hierachy System (FHS). 
 
