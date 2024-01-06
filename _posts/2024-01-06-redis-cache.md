@@ -32,5 +32,57 @@ Let's create a spring boot application using [Spring Initializr](https://start.s
 Update the application properties, to point the datasoource to your database update the database user and password. Update spring cache type and cache null values.
 your ***application.propeties*** file should have the following: -
 ```java
+    logging.level.org.springframework.jdbc.datasource.init.ScriptUtils=debug
+    spring.jpa.hibernate.ddl-auto=none
 
+    spring.datasource.url=jdbc:postgresql://localhost:5432/redis_example
+    spring.datasource.username=postgres
+    spring.datasource.password=password
+
+    spring.cache.type=redis
+    spring.cache.redis.cache-null-values=true
 ```
+### Step 4: Create an Entity class as Product.java
+Create an entity class ***Product.java*** that has a NoArgsContructor, AllArgsConstructor, Getters and Setters, ToString, EqualsAndHashCode and RequiredArgsConstructor
+``` java
+@Entity
+@Table(name = "products")
+public class Product implements Serializable {
+    private static final long serialVersionUID = 4L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  Long prodId;
+    private String productName;
+    //NoArgsConstructor
+    //AllArgsConstructor
+    //getters and setters
+    //ToString
+    //EqualsAndHashCode
+    //RequiredArgsConstructor
+
+}
+```
+### Step 5: Create a repository interface as ProductRepository.java
+Create a Repository Interface as ***ProductRepository.java*** which extends JpaRepository<Product, Long> as below: -
+```java
+@Repository
+public interface ProductRepository extends JpaRepository<Product, Long> {
+}
+```
+### Step 6: Create Service Interface and implement the service.
+In the service layer create an interface ***ProductService.java*** and add the methods to be implemented. Create a class ***ProductServiceImpl.java*** that implements the above interface. On the implementation of the interface we will add anotations to apply Caching mechanism offered by redis. We will use the following annotations:-
+
+### Step 7: Add Caching anotation @EnableCaching at starter class
+In order to implement Redis cache on spring boot we will use four annotations: -
+```java
+@SpringBootApplication
+@EnableCaching
+public class RedisApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(RedisApplication.class, args);
+	}
+
+}
+```
+### Step 8: Create RestController class as ProductRestController.java
