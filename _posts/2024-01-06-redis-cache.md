@@ -71,6 +71,54 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 ```
 ### Step 6: Create Service Interface and implement the service.
 In the service layer create an interface ***ProductService.java*** and add the methods to be implemented. Create a class ***ProductServiceImpl.java*** that implements the above interface. On the implementation of the interface we will add anotations to apply Caching mechanism offered by redis. We will use the following annotations:-
+> #### @Cacheable 
+> this annotation is used to enable caching behavior for a method. it is mostly used on retrival methods since once the method demarcated with this annotation is called the method will first check the cache before invoking th method and then caching the result.
+>
+> #### @CachePut 
+> this annotation is used to update cache data once data in the database has been altered. A method demarcated with this annotation will always be executed and the result cached.
+>
+> #### @CacheEvict
+> This annotation is used to remove unused or stale data from the cache. it has addition parameters such as ***value*** and ***allEntries*** that will enable removal of all data with a given value.
+> #### @Caching 
+> this annotation is used to combine several annotation as spring boot does not allow multiple annotation of the same type to be declared on a single method. For instance if you want to update both the cached list of products and the  ached product with a given key then you could use ***@Caching*** to combine the two
+```console
+    @Caching(
+    evict = {@CacheEvict(value = "products", allEntries = true)},
+    put   = {@CachePut(value = "product", key = "#product.getProductId()")}
+    ) 
+    public User updateProduct(Product product) {
+    ....
+    }
+```
+Below are the annotations as used in our example:- 
+
+```java
+public interface ProductService {
+
+    public Product saveProduct(Product product);
+    public Product updateProduct(Product product, Integer productId);
+    public void deleteProduct(Integer productId);
+    public Product getProductById(Integer productId);
+    public List<Product> getAllProducts();
+}
+```
+
+```java
+@Service
+public class ProductServiceImpl implements ProductService{
+    private final ProductRepository productRepository;
+
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    @Override
+    @Cacheable(value = "product")
+    public List<Product> getAllProducts() {
+        return  productRepository.findAll();
+    }
+}
+```
 
 ### Step 7: Add Caching anotation @EnableCaching at starter class
 In order to implement Redis cache on spring boot we will use four annotations: -
