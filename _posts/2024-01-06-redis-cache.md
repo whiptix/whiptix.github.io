@@ -45,6 +45,9 @@ your ***application.propeties*** file should have the following: -
 ### Step 4: Create an Entity class as Product.java
 Create an entity class ***Product.java*** that has a NoArgsContructor, AllArgsConstructor, Getters and Setters, ToString, EqualsAndHashCode and RequiredArgsConstructor
 ``` java
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "products")
 public class Product implements Serializable {
@@ -53,12 +56,6 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long prodId;
     private String productName;
-    //NoArgsConstructor
-    //AllArgsConstructor
-    //getters and setters
-    //ToString
-    //EqualsAndHashCode
-    //RequiredArgsConstructor
 
 }
 ```
@@ -81,7 +78,7 @@ In the service layer create an interface ***ProductService.java*** and add the m
 > This annotation is used to remove unused or stale data from the cache. it has addition parameters such as ***value*** and ***allEntries*** that will enable removal of all data with a given value.
 > #### @Caching 
 > this annotation is used to combine several annotation as spring boot does not allow multiple annotation of the same type to be declared on a single method. For instance if you want to update both the cached list of products and the  ached product with a given key then you could use ***@Caching*** to combine the two
-```console
+```java
     @Caching(
     evict = {@CacheEvict(value = "products", allEntries = true)},
     put   = {@CachePut(value = "product", key = "#product.getProductId()")}
@@ -113,11 +110,42 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    @Override
+    @CachePut(value = "product", key="#productId")
+    public Product updateProduct(Product product, Long productId) {
+        Product oldProduct = productRepository.findById(productId)
+                .orElseThrow(() ->new ProductNotFoundException("Product with ID "+productId.toString()+" was not found"));
+//        Update the attributes
+        oldProduct.setProductName(product.getProductName());
+        oldProduct.setUom(product.getUom());
+        return oldProduct;
+    }
+
+    @Override
+    @CacheEvict(value = "product", key="#productId")
+    public void deleteProduct(Long productId) {
+        Product oldProduct = productRepository.findById(productId)
+                .orElseThrow(() ->new ProductNotFoundException("Product with ID "+productId.toString()+" was not found"));
+        productRepository.delete(oldProduct);
+    }
+
+    @Override
+    @Cacheable(value = "product", key="#productId")
+    public Product getProductById(Long productId) {
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() ->new ProductNotFoundException("Product with ID "+productId.toString()+" was not found"));
+        return product;
+    }
+
+    @Override
     @Cacheable(value = "product")
     public List<Product> getAllProducts() {
         return  productRepository.findAll();
     }
-}
 ```
 
 ### Step 7: Add Caching anotation @EnableCaching at starter class
@@ -134,3 +162,44 @@ public class RedisApplication {
 }
 ```
 ### Step 8: Create RestController class as ProductRestController.java
+Finally, create a Rest Controller ***ProductRestController.java*** and input the following :
+```java
+@RestController
+@RequestMapping("/api/v1")
+public class RedisController {
+    private final ProductService productService;
+
+    public RedisController(ProductService productService) {
+        this.productService = productService;
+    }
+    @GetMapping("/getAllProducts")
+    public ResponseEntity<List<Product>> getProducts(){
+        return ResponseEntity.ok(productService.getAllProducts());
+    }
+    @GetMapping("/getProductById/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable Long id){
+        return ResponseEntity.ok(productService.getProductById(id));
+    }
+    @PutMapping("/updateProduct/{id}")
+    public ResponseEntity<Product> updateProduct(@RequestBody Product product,@PathVariable Long id){
+        return ResponseEntity.ok(productService.updateProduct(product,id));
+    }
+    @DeleteMapping("/deleteProduct/{id}")
+    public String deleteProduct(@PathVariable Long id){
+        productService.deleteProduct(id);
+        return "Product with id: "+id+ " Deleted Successfully !";
+    }
+
+}
+```
+
+### Step 9: Running your application 
+To run the application follow the following steps:
+> 1. Start the redis server.
+> 2. Run your Spring boot aplication.
+> 3. Test your endpoints using postman and note the response time of each call you make to measure the API Latency.
+
+
+## Conclusion 
+After going through ***How to improve API latency through caching*** with a practical example, it is important to note that this is only one way to improve latency of your API. There are other techniques to improve the performance of your API.
+The code used in this article can be found on github [here](https://github.com/craiptan/redis-demo 'here')
